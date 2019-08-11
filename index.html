@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/11/JSONP和CORS的组合拳/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2019/08/11/JSONP和CORS的组合拳/" itemprop="url">深入浅出JSONP跨域和CORS跨域资源共享漏洞</a></h1>
         
 
         <div class="post-meta">
@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-11T15:51:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-11T15:50:00+08:00">
                 2019-08-11
               </time>
             
@@ -270,6 +270,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全文章-在此处输入这篇文章的分类。/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全文章  //在此处输入这篇文章的分类。</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -300,9 +322,7 @@
       
         
           
-            <hr>
-<p>title: 深入浅出JSONP跨域和CORS跨域资源共享漏洞<br>date: 2019-8-11 15:50<br>categories: web安全文章  //在此处输入这篇文章的分类。<br>tags: web安全</p>
-<p>toc: true  //在此处设定是否开启目录，需要主题支持。<br>—### 前言<br>最近挖不到洞，快过年了事情也比较多。所以整理了下比较基础的跨域漏洞知识点，希望能抛砖引玉。</p>
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近挖不到洞，快过年了事情也比较多。所以整理了下比较基础的跨域漏洞知识点，希望能抛砖引玉。</p>
 <h3 id="1-JSONP跨域"><a href="#1-JSONP跨域" class="headerlink" title="1. JSONP跨域"></a>1. JSONP跨域</h3><p>JSONP（JSON with padding）,是一种利用HTML中<script></script>元素标签，远程调用json文件来实现数据传递的技术，它的特点是可以<strong>跨域读取数据。</strong><br>那么为什么需要用到jsonp这样一种方式传递不同域之间的数据呢？因为同源策略，同源策略是由Netscape提出的一个著名的安全策略，现在所有支持JavaScript 的浏览器都会使用这个策略。<br>我们以key表哥的<a href="https://github.com/gh0stkey/DoraBox" target="_blank" rel="noopener">droabox</a>为例<br><img src="https://upload-images.jianshu.io/upload_images/7857598-39ed423580190c35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信截图_20190123201004.png"><br><img src="https://upload-images.jianshu.io/upload_images/7857598-78a513453d29b0b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信截图_20190123201020.png"></p>
 <p>首先看下源码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- jsonp.php --&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">	include &quot;../class/function.class.php&quot;;</span><br><span class="line">	$reqMethod = &quot;GET&quot;;</span><br><span class="line">	$reqValue = &quot;callback&quot;;</span><br><span class="line">	$p = new Func($reqMethod, $reqValue);</span><br><span class="line">	$info = array(&apos;username&apos; =&gt; &apos;Vulkey_Chen&apos;, &apos;mobilephone&apos; =&gt; &apos;13188888888&apos;, &apos;email&apos; =&gt; &apos;admin@gh0st.cn&apos;, &apos;address&apos; =&gt; &apos;中华人民共和国&apos;, &apos;sex&apos; =&gt; &apos;Cool Man&apos;);</span><br><span class="line">	if(!@$_GET[&apos;callback&apos;])&#123;</span><br><span class="line">		echo $p -&gt; con_function(&apos;json_encode&apos;,$info);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		$callback = htmlspecialchars($_GET[&apos;callback&apos;]);</span><br><span class="line">		echo &quot;&#123;$callback&#125;(&quot; . $p -&gt; con_function(&apos;json_encode&apos;,$info) . &quot;)&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
@@ -725,7 +745,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
