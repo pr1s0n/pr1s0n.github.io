@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Pr1s0n">
 <meta property="og:description" content="调试assert1234567def foo(s):    n = int(s)    assert n != 0, &amp;apos;n is zero!&amp;apos;    return 10 / ndef main():    foo(&amp;apos;0&amp;apos;)  assert表示：如果n != 0 得结果为true,则程序继续进行如果断言失败，assert语句本身就会抛出AssertionErr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-14T10:08:56.161Z">
+<meta property="og:updated_time" content="2019-08-15T11:12:31.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10st_day 调试">
 <meta name="twitter:description" content="调试assert1234567def foo(s):    n = int(s)    assert n != 0, &amp;apos;n is zero!&amp;apos;    return 10 / ndef main():    foo(&amp;apos;0&amp;apos;)  assert表示：如果n != 0 得结果为true,则程序继续进行如果断言失败，assert语句本身就会抛出AssertionErr">
@@ -360,6 +360,7 @@
         <h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><h4 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def foo(s):</span><br><span class="line">    n = int(s)</span><br><span class="line">    assert n != 0, &apos;n is zero!&apos;</span><br><span class="line">    return 10 / n</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    foo(&apos;0&apos;)</span><br></pre></td></tr></table></figure>
 
 <p>assert表示：如果n != 0 得结果为true,则程序继续进行<br>如果断言失败，assert语句本身就会抛出AssertionError错误，内容为表达式后的’n is zero!’<br>python解释器可以使用-O参数来关闭assert</p>
+<a id="more"></a>
 <h4 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h4><p>import logging<br>logging.basicConfig(level=logging.INFO)</p>
 <p>logging不会抛出错误，且可以输出错误信息到文件。<br>logging记录的信息等级有：debug,info,warning,error等几个级别。</p>
 <h4 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h4><p>pdb适用于python解释器，可使程序一步一步运行。</p>
@@ -409,6 +410,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/15/io操作/" rel="prev" title="st11_day IO编程笔记">
+                st11_day IO编程笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -485,7 +490,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
