@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="IO编程读文件open(‘路径’,’模式’,encoding=’编码方式’,errors=’ignore’)  打开文本文件使用’r’,二进制文件使用’rb’ 编码方式默认为UTF-8 遇到编码错误后使用error参数处理  每次打开文件操作结束后需要使用f.close()关闭文件，不然会持续造成内存占用。可以使用with语句简化操作。 写文件write([str])write()方法用于向文件中">
+<meta name="description" content="进程和线程每一个正在运行的程序都可以看作是一个进程，比如你打开了一个浏览器就是启动了一个浏览器进程，打开了QQ就是启动了一个QQ进程，打开两个QQ就是启动了两个QQ进程。每个进程至少要干一件事，有的进程还不止干一件事，比如word文档，在你打字的同时，word程序本身还在进行拼写检查，字数统计等事情。在一个进程内部，要同时干很多不同的事情，就需要同时运行多个”子任务”，这些”子任务”称为线程。 m">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="st11_day IO编程笔记">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/io操作/index.html">
+<meta property="og:title" content="st11_day 进程和线程">
+<meta property="og:url" content="http://yoursite.com/2019/08/15/进程和线程/index.html">
 <meta property="og:site_name" content="Pr1s0n">
-<meta property="og:description" content="IO编程读文件open(‘路径’,’模式’,encoding=’编码方式’,errors=’ignore’)  打开文本文件使用’r’,二进制文件使用’rb’ 编码方式默认为UTF-8 遇到编码错误后使用error参数处理  每次打开文件操作结束后需要使用f.close()关闭文件，不然会持续造成内存占用。可以使用with语句简化操作。 写文件write([str])write()方法用于向文件中">
+<meta property="og:description" content="进程和线程每一个正在运行的程序都可以看作是一个进程，比如你打开了一个浏览器就是启动了一个浏览器进程，打开了QQ就是启动了一个QQ进程，打开两个QQ就是启动了两个QQ进程。每个进程至少要干一件事，有的进程还不止干一件事，比如word文档，在你打字的同时，word程序本身还在进行拼写检查，字数统计等事情。在一个进程内部，要同时干很多不同的事情，就需要同时运行多个”子任务”，这些”子任务”称为线程。 m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-15T11:11:26.086Z">
+<meta property="og:updated_time" content="2019-08-15T13:55:38.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="st11_day IO编程笔记">
-<meta name="twitter:description" content="IO编程读文件open(‘路径’,’模式’,encoding=’编码方式’,errors=’ignore’)  打开文本文件使用’r’,二进制文件使用’rb’ 编码方式默认为UTF-8 遇到编码错误后使用error参数处理  每次打开文件操作结束后需要使用f.close()关闭文件，不然会持续造成内存占用。可以使用with语句简化操作。 写文件write([str])write()方法用于向文件中">
+<meta name="twitter:title" content="st11_day 进程和线程">
+<meta name="twitter:description" content="进程和线程每一个正在运行的程序都可以看作是一个进程，比如你打开了一个浏览器就是启动了一个浏览器进程，打开了QQ就是启动了一个QQ进程，打开两个QQ就是启动了两个QQ进程。每个进程至少要干一件事，有的进程还不止干一件事，比如word文档，在你打字的同时，word程序本身还在进行拼写检查，字数统计等事情。在一个进程内部，要同时干很多不同的事情，就需要同时运行多个”子任务”，这些”子任务”称为线程。 m">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/15/io操作/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/15/进程和线程/">
 
 
 
 
 
-  <title>st11_day IO编程笔记 | Pr1s0n</title>
+  <title>st11_day 进程和线程 | Pr1s0n</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/io操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/进程和线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pr1s0n">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">st11_day IO编程笔记</h1>
+          <h1 class="post-title" itemprop="name headline">st11_day 进程和线程</h1>
         
 
         <div class="post-meta">
@@ -292,7 +292,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T15:50:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T21:55:23+08:00">
                 2019-08-15
               </time>
             
@@ -357,34 +357,33 @@
       
 
       
-        <h3 id="IO编程"><a href="#IO编程" class="headerlink" title="IO编程"></a>IO编程</h3><h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p><strong>open(‘路径’,’模式’,encoding=’编码方式’,errors=’ignore’)</strong></p>
-<ol>
-<li>打开文本文件使用’r’,二进制文件使用’rb’</li>
-<li>编码方式默认为UTF-8</li>
-<li>遇到编码错误后使用error参数处理</li>
-</ol>
-<p>每次打开文件操作结束后需要使用f.close()关闭文件，不然会持续造成内存占用。<br>可以使用with语句简化操作。</p>
-<h4 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h4><p><strong>write([str])</strong><br>write()方法用于向文件中写入指定字符串，参数为字符串，返回值为写入的字符长度。<br>和open()参数配合with使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&apos;/test/test.txt&apos;,&apos;w&apos;) as f:</span><br><span class="line">	f.write(&apos;hello&apos;)</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，以<strong>w</strong>模式写入文件时，默认是覆盖原有文件的所有内容，如果需要将字符串追加到文件末尾，则可以使用’a’模式写入。</p>
+        <h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><p>每一个正在运行的程序都可以看作是一个进程，比如你打开了一个浏览器就是启动了一个浏览器进程，打开了QQ就是启动了一个QQ进程，打开两个QQ就是启动了两个QQ进程。<br>每个进程至少要干一件事，有的进程还不止干一件事，比如word文档，在你打字的同时，word程序本身还在进行拼写检查，字数统计等事情。在一个进程内部，要同时干很多不同的事情，就需要同时运行多个”子任务”，这些”子任务”称为线程。</p>
+<h4 id="multiprocessing"><a href="#multiprocessing" class="headerlink" title="multiprocessing"></a>multiprocessing</h4><p>由于Windows上无法调用fork，所以需要引入multiprocessing这个多进程模块，<strong>multiprocessing</strong>模块提供了一个<strong>Process</strong>类来表示一个进程对象。</p>
 <a id="more"></a>
-<h4 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h4><p>首先使用<code>import os</code>将os模块加载进来</p>
-<ol>
-<li>os.name <em>返回操作操作系统类型，posix为Linux、Unix或Mac os x，nt为Windows操作系统。</em></li>
-<li>os.uname <em>返回详细的系统信息，但是Windows不可使用</em></li>
-<li>os.environ <em>返回系统中定义的环境变量，如果需要获取某个变量的值，可以调用os.environ.get()</em></li>
-</ol>
-<h4 id="操作文件和目录"><a href="#操作文件和目录" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前目录的绝对路径:</span><br><span class="line">&gt;&gt;&gt; os.path.abspath(&apos;.&apos;)</span><br><span class="line">&apos;/Users/michael&apos;</span><br><span class="line"># 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:</span><br><span class="line">&gt;&gt;&gt; os.path.join(&apos;D:\\&apos;, &apos;test&apos;)</span><br><span class="line">&apos;D:\\test&apos;</span><br><span class="line"># 然后创建一个目录:</span><br><span class="line">&gt;&gt;&gt; os.mkdir(&apos;/test&apos;)</span><br><span class="line"># 删掉一个目录:</span><br><span class="line">&gt;&gt;&gt; os.rmdir(&apos;/test&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">from multiprocessing import Process</span><br><span class="line">def run_proc(name):</span><br><span class="line">	print(&apos;Run child process %s (%s)...&apos; % (name,os.getpid()))</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	print(&apos;Parent process %s.&apos; % os.getpid())</span><br><span class="line">	p = Process(target=run_proc,args=(&apos;test&apos;,))</span><br><span class="line">	print(&apos;Child process will start.&apos;)</span><br><span class="line">	p.start()</span><br><span class="line">	p.join()</span><br><span class="line">	print(&apos;Child process end.&apos;)</span><br></pre></td></tr></table></figure>
 
-<p><strong>注意，因为在Linux和Windows中目录分割符号不同，所以在拼接和拆分目录结构时不要直接拼接字符串，而要使用<code>os.path.join()</code>和<code>os.path.split()</code>函数操作</strong></p>
-<p><code>os.path.splitext()</code>函数可以直接获取到文件扩展名<br><strong>shutil</strong>模块中提供了很多os模块没有的实用功能，可以看作是os的扩展补充。</p>
-<p>列出当前目录下的所有目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if os.path.isdir(x)]</span><br><span class="line">[&apos;$RECYCLE.BIN&apos;, &apos;blog&apos;, &apos;douyin&apos;, &apos;download&apos;, &apos;Huorong&apos;, &apos;learn_python3&apos;, &apos;nodejs&apos;, &apos;sublime&apos;, &apos;System Volume Information&apos;, &apos;Test404 HTTP Fuzzer&apos;, &apos;vedio&apos;]</span><br></pre></td></tr></table></figure>
+<p>执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Parent process 12704.</span><br><span class="line">Child process will start.</span><br><span class="line">Run child process test (3928)...</span><br><span class="line">Child process end.</span><br><span class="line">[Finished in 1.2s]</span><br></pre></td></tr></table></figure>
 
-<p>列出所有的.py后缀的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if os.path.isfile(x) and os.path.splitext(x)[1]==&apos;.py&apos;]</span><br><span class="line">[&apos;class.py&apos;, &apos;classes.py&apos;, &apos;sys_hello.py&apos;]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>start()方法用于启动一个子进程，join()方法可以等待子进程结束执行下一步。</p>
+<h4 id="Pool"><a href="#Pool" class="headerlink" title="Pool"></a>Pool</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Signature: Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)</span><br></pre></td></tr></table></figure>
 
+<p>Pool中提供了以下几种方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apply()</span><br><span class="line">apply_async()</span><br><span class="line">map()</span><br><span class="line">map_async()</span><br><span class="line">close()</span><br><span class="line">terminal()</span><br><span class="line">join()</span><br></pre></td></tr></table></figure>
+
+<p><strong>apply</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Signature: pool.apply(func, args=(), kwds=&#123;&#125;)</span><br><span class="line">Docstring: Equivalent of `func(*args, **kwds)`.</span><br></pre></td></tr></table></figure>
+
+<p>apply函数主要用于传递不定参数，主线程会被阻塞到函数执行结束。也就是说只有执行完了apply里面的内容之后，才会执行主函数的内容。</p>
+<p><strong>apply_async</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Signature: pool.apply_async(func, args=(), kwds=&#123;&#125;, callback=None, error_callback=None)</span><br><span class="line">Docstring: Asynchronous version of `apply()` method.</span><br></pre></td></tr></table></figure>
+
+<p><strong>apply_async</strong>为异步非阻塞的，就是说不用等待当前进程执行完毕，随时根据系统调度来进行进程切换。</p>
+<h4 id="subprocess"><a href="#subprocess" class="headerlink" title="subprocess"></a>subprocess</h4><p><strong>subprocess</strong>模块可以启动一个子进程，然后控制其输入和输出。</p>
+<h4 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h4><p>进程之间是需要通信的，python的<strong>multiprocessing</strong>模块封装了很多操作系统底层进程通信机制，提供了<strong>Queue</strong><br><strong>Pipes</strong>等多种方式来交换数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process,Queue</span><br><span class="line">import os,time,random</span><br><span class="line"></span><br><span class="line">def write(q):</span><br><span class="line">	print(&apos;Process to write:%s &apos; % os.getpid())</span><br><span class="line">	for value in [&apos;A&apos;,&apos;B&apos;,&apos;C&apos;]:</span><br><span class="line">		print(&apos;Put %s to queue...&apos; % value)</span><br><span class="line">		q.put(value)</span><br><span class="line">		time.sleep(random.random())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def read(q):</span><br><span class="line">	print(&apos;Process to read: %s&apos; % os.getpid())</span><br><span class="line">	while True:</span><br><span class="line">		value = q.get(True)</span><br><span class="line">		print(&apos;Get %s from queue.&apos; % value)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	q = Queue()</span><br><span class="line">	#父进程创建Queue，并传给各个子进程</span><br><span class="line">	pw = Process(target=write,args=(q,))</span><br><span class="line">	pr = Process(target=read,args=(q,))</span><br><span class="line">	pw.start()</span><br><span class="line">	pr.start()</span><br><span class="line">	pw.join()</span><br><span class="line">	#pr是死循环，无法使用join()结束，只能强行终止</span><br><span class="line">	pr.terminate()</span><br></pre></td></tr></table></figure>
+
+<p>Queue模块主要是保证线程安全使用的。<br><strong>基本FIFO队列</strong><br><code>class Queue.Queue(maxsize=0)</code><br>即先进先出，如果参数为0或小于0，代表队列大小没有限制。<br>在Linux/Unix下，可以使用fork()调用实现多进程，<br>要实现跨平台的多进程，可以使用multiprocessing模块，<br>进程间通信是通过queue、pipes实现的。</p>
 
       
     </div>
@@ -415,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/14/debug/" rel="next" title="10st_day 调试">
-                <i class="fa fa-chevron-left"></i> 10st_day 调试
+              <a href="/2019/08/15/io操作/" rel="next" title="st11_day IO编程笔记">
+                <i class="fa fa-chevron-left"></i> st11_day IO编程笔记
               </a>
             
           </div>
@@ -424,10 +423,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/15/进程和线程/" rel="prev" title="st11_day 进程和线程">
-                st11_day 进程和线程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#IO编程"><span class="nav-number">1.</span> <span class="nav-text">IO编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读文件"><span class="nav-number">1.1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写文件"><span class="nav-number">1.2.</span> <span class="nav-text">写文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os模块"><span class="nav-number">1.3.</span> <span class="nav-text">os模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作文件和目录"><span class="nav-number">1.4.</span> <span class="nav-text">操作文件和目录</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程和线程"><span class="nav-number">1.</span> <span class="nav-text">进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#multiprocessing"><span class="nav-number">1.1.</span> <span class="nav-text">multiprocessing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pool"><span class="nav-number">1.2.</span> <span class="nav-text">Pool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#subprocess"><span class="nav-number">1.3.</span> <span class="nav-text">subprocess</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程间通信"><span class="nav-number">1.4.</span> <span class="nav-text">进程间通信</span></a></li></ol></li></ol></div>
             
 
           </div>
