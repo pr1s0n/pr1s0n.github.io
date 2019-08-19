@@ -355,30 +355,20 @@
 
       
         
-          
-            <h3 id="HTMLParser"><a href="#HTMLParser" class="headerlink" title="HTMLParser"></a>HTMLParser</h3><h4 id="非显式调用"><a href="#非显式调用" class="headerlink" title="非显式调用"></a>非显式调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from urllib import request</span><br><span class="line">from html.parser import HTMLParser</span><br><span class="line">class HtmlParserTest(HTMLParser):</span><br><span class="line">	&quot;&quot;&quot;docstring for HtmlParserTest&quot;&quot;&quot;</span><br><span class="line">	def __init__(self):</span><br><span class="line">		super().__init__()</span><br><span class="line">		self.tag = None</span><br><span class="line">	def handle_starttag(self,tag,attrs):</span><br><span class="line">		if tag == &apos;time&apos;:</span><br><span class="line">			self.tag = &apos;Time:&apos;</span><br><span class="line">		elif(&apos;class&apos;,&apos;event-location&apos;) in attrs:</span><br><span class="line">			self.tag = &apos;Location:&apos;</span><br><span class="line">		elif(&apos;class&apos;,&apos;event-title&apos;) in attrs:</span><br><span class="line">			self.tag = &apos;\nTitle:&apos;</span><br><span class="line">	def handle_data(self,data):</span><br><span class="line">		if self.tag:</span><br><span class="line">			print(self.tag,data)</span><br><span class="line">	def handle_endtag(self,tag):</span><br><span class="line">		self.tag = None</span><br><span class="line"></span><br><span class="line">with request.urlopen(&apos;https://www.python.org/events/python-events/&apos;) as f:</span><br><span class="line">	html_data = f.read().decode(&apos;utf-8&apos;)</span><br><span class="line"></span><br><span class="line">parser = HtmlParserTest()</span><br><span class="line">parser.feed(html_data)</span><br></pre></td></tr></table></figure>
+          <h3 id="HTMLParser"><a href="#HTMLParser" class="headerlink" title="HTMLParser"></a>HTMLParser</h3><h4 id="非显式调用"><a href="#非显式调用" class="headerlink" title="非显式调用"></a>非显式调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from urllib import request</span><br><span class="line">from html.parser import HTMLParser</span><br><span class="line">class HtmlParserTest(HTMLParser):</span><br><span class="line">	&quot;&quot;&quot;docstring for HtmlParserTest&quot;&quot;&quot;</span><br><span class="line">	def __init__(self):</span><br><span class="line">		super().__init__()</span><br><span class="line">		self.tag = None</span><br><span class="line">	def handle_starttag(self,tag,attrs):</span><br><span class="line">		if tag == &apos;time&apos;:</span><br><span class="line">			self.tag = &apos;Time:&apos;</span><br><span class="line">		elif(&apos;class&apos;,&apos;event-location&apos;) in attrs:</span><br><span class="line">			self.tag = &apos;Location:&apos;</span><br><span class="line">		elif(&apos;class&apos;,&apos;event-title&apos;) in attrs:</span><br><span class="line">			self.tag = &apos;\nTitle:&apos;</span><br><span class="line">	def handle_data(self,data):</span><br><span class="line">		if self.tag:</span><br><span class="line">			print(self.tag,data)</span><br><span class="line">	def handle_endtag(self,tag):</span><br><span class="line">		self.tag = None</span><br><span class="line"></span><br><span class="line">with request.urlopen(&apos;https://www.python.org/events/python-events/&apos;) as f:</span><br><span class="line">	html_data = f.read().decode(&apos;utf-8&apos;)</span><br><span class="line"></span><br><span class="line">parser = HtmlParserTest()</span><br><span class="line">parser.feed(html_data)</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p><strong>HTMLParser.handle_starttag(tag,attrs)</strong>: 解析时遇到开始标签调用,如<code>&lt;p class=&#39;para&#39;&gt;</code>,参数tag是标签名,这里是’p’,attrs为标签所有属性(name,value)列表,这里是<code>[(&#39;class&#39;,&#39;para&#39;)]</code></p>
-</li>
-<li><p><strong>HTMLParser.handle_endtag(tag)</strong>: 遇到结束标签时调用,tag是标签名</p>
-</li>
-<li><p><strong>HTMLPars.handle_data(data)</strong>: 遇到标签中间的内容时调用,如<code>&lt;style&gt; p {color: blue; }&lt;/style&gt;</code>,参数data为开闭标签间的内容.值得注意的是在形如<code>&lt;div&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;</code>的位置,并不会在div处调用,而是只在p处调用。</p>
-</li>
-</ol>
-<h4 id="显式调用"><a href="#显式调用" class="headerlink" title="显式调用"></a>显式调用</h4><ol>
-<li><p><strong>HTMLParser.feed(data)</strong>: 参数为需要解析的html字符串,调用后字符串开始被解析</p>
-</li>
-<li><p><strong>HTMLParser.getpos()</strong>: 返回当前的行号和偏移位置,如(23,5)</p>
-</li>
-<li><p><strong>HTMLParser.get_starttag_text()</strong>: 返回当前位置最近的开始标签的内容</p>
-</li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/st_15day HTMLParser/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
     
     
     
@@ -514,8 +504,7 @@
 
       
         
-          
-            <h3 id="Pillow"><a href="#Pillow" class="headerlink" title="Pillow"></a>Pillow</h3><p>pillow是一个图形处理模块，可以实现常用的裁剪，模糊，输出文字等功能。</p>
+          <h3 id="Pillow"><a href="#Pillow" class="headerlink" title="Pillow"></a>Pillow</h3><p>pillow是一个图形处理模块，可以实现常用的裁剪，模糊，输出文字等功能。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">im = Image.open(&apos;image.jpg&apos;)</span><br><span class="line">w,h = im.size</span><br><span class="line">print(&apos;Original image size:%s %s&apos; % (w,h))</span><br><span class="line">im.thumbnail((w//2, h//2))</span><br><span class="line">print(&apos;Resize image to: %s %s&apos; % (w//2,h//2))</span><br><span class="line">im.save(&apos;thumbnial.jpg&apos;,&apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image, ImageFilter</span><br><span class="line"></span><br><span class="line"># 打开一个jpg图像文件，注意是当前路径:</span><br><span class="line">im = Image.open(&apos;test.jpg&apos;)</span><br><span class="line"># 应用模糊滤镜:</span><br><span class="line">im2 = im.filter(ImageFilter.BLUR)</span><br><span class="line">im2.save(&apos;blur.jpg&apos;, &apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
@@ -524,22 +513,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image,ImageFilter</span><br><span class="line">import os</span><br><span class="line">im = Image.open(&apos;image.jpg&apos;)</span><br><span class="line">im2 = im.filter(ImageFilter.BLUR)</span><br><span class="line">im2.save(&apos;blur.jpg&apos;,&apos;jpeg&apos;)</span><br><span class="line">if os.path.exists(&apos;blur.jpg&apos;):</span><br><span class="line">	print(&apos;success!&apos;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h3><p>requests用来处理URL资源。<br><strong>get()</strong><br>使用<code>requests.get(&#39;url&#39;)</code>来实现一个get访问功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import requests</span><br><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://api.github.com/user&apos;, auth=(&apos;user&apos;, &apos;pass&apos;))</span><br><span class="line">&gt;&gt;&gt; r.status_code</span><br><span class="line">200</span><br><span class="line">&gt;&gt;&gt; r.headers[&apos;content-type&apos;]</span><br><span class="line">&apos;application/json; charset=utf8&apos;</span><br><span class="line">&gt;&gt;&gt; r.encoding</span><br><span class="line">&apos;utf-8&apos;</span><br><span class="line">&gt;&gt;&gt; r.text</span><br><span class="line">u&apos;&#123;&quot;type&quot;:&quot;User&quot;...&apos;</span><br><span class="line">&gt;&gt;&gt; r.json()</span><br><span class="line">&#123;u&apos;disk_usage&apos;: 368627, u&apos;private_gists&apos;: 484, ...&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>requests.status_code</code>获取状态码<br><code>requests.headers[&#39;&#39;]</code>获取头信息<br>…<br>如果url带参数，则可以设置get的第二个参数<strong>params</strong>,传入类型为dict.<br><code>requests.content</code>可以获取网页的bytes对象。<br><code>requests.json</code>可以直接 获取JSON格式数据，返回值为dict.</p>
-<p><strong>post()</strong><br>post请求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.post(&apos;https://accounts.douban.com/login&apos;, data=&#123;&apos;form_email&apos;: &apos;abc@example.com&apos;, &apos;form_password&apos;: &apos;123456&apos;&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>文件上传：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; upload_files = &#123;&apos;file&apos;: open(&apos;report.xls&apos;, &apos;rb&apos;)&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.post(url, files=upload_files)</span><br></pre></td></tr></table></figure>
-
-<p>此外，还有<strong>put()</strong>,<strong>delete()</strong>方法，使用方法类似。<br>如果想要访问时带上cookie，只需要准备一个dict传入cookie参数即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; cs = &#123;&apos;token&apos;: &apos;12345&apos;, &apos;status&apos;: &apos;working&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.get(url, cookies=cs)</span><br></pre></td></tr></table></figure>
-
-<h3 id="Tkinter图形化界面"><a href="#Tkinter图形化界面" class="headerlink" title="Tkinter图形化界面"></a>Tkinter图形化界面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">from tkinter import *</span><br><span class="line">import tkinter.messagebox as messagebox</span><br><span class="line">class Application(Frame):</span><br><span class="line">	&quot;&quot;&quot;docstring for Application&quot;&quot;&quot;</span><br><span class="line">	def __init__(self, master=None):</span><br><span class="line">		Frame.__init__(self,master)</span><br><span class="line">		self.pack()</span><br><span class="line">		self.createWidgets()</span><br><span class="line">	def createWidgets(self):</span><br><span class="line">		# self.helloLabel = Label(self,text=&apos;hello world&apos;)</span><br><span class="line">		# self.helloLabel.pack()</span><br><span class="line">		self.nameInput = Entry(self)</span><br><span class="line">		self.nameInput.pack()</span><br><span class="line">		self.alertButton = Button(self,text=&apos;Hello&apos;,command=self.hello)</span><br><span class="line">		self.alertButton.pack()</span><br><span class="line">	def hello(self):</span><br><span class="line">		name = self.nameInput.get() or &apos;world&apos;</span><br><span class="line">		messagebox.showinfo(&apos;Message&apos;,&apos;hello, %s&apos; % name)</span><br><span class="line"></span><br><span class="line">app = Application()</span><br><span class="line">app.master.title(&apos;hello world&apos;)</span><br><span class="line">app.mainloop()</span><br></pre></td></tr></table></figure>
-
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/st15_day常用第三方模块/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1636,7 +1616,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/从零到一的hexo博客搭建指南/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/JSONP和CORS的组合拳/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pr1s0n">
@@ -1655,7 +1635,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/11/从零到一的hexo博客搭建指南/" itemprop="url">从零到一的hexo博客搭建指南</a></h1>
+                <a class="post-title-link" href="/2019/08/11/JSONP和CORS的组合拳/" itemprop="url">深入浅出JSONP跨域和CORS跨域资源共享漏洞</a></h1>
         
 
         <div class="post-meta">
@@ -1690,8 +1670,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">网站搭建</span>
+                  <a href="/categories/web安全文章/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全文章</span>
                   </a>
                 </span>
 
@@ -1728,17 +1708,11 @@
 
       
         
-          <h3 id="hexo安装所需工具"><a href="#hexo安装所需工具" class="headerlink" title="hexo安装所需工具"></a>hexo安装所需工具</h3><p>1.nodejs<br>2.hexo程序文件</p>
-<h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><p>首先在nodejs官网下载<a href="https://nodejs.org/dist/v10.16.2/node-v10.16.2-x64.msi" target="_blank" rel="noopener">nodejs LTS</a></p>
-<p>然后选择好安装路径一路点击NEXT即可完成安装</p>
-<p>安装完成后，在命令行中输入 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<p>如果显示node版本即说明安装成功</p>
-<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p>首先使用 <code>npm install cnpm --registry=https://registry.npm.taobao.org</code><br>安装一个使用淘宝源的cnpm，直接使用nmp命令安装hexo也可以，但是因为国外源在国内的速度感人，所以推荐大家使用cnpm.<br>cnpm安装成功后，使用<code>cnpm install -g hexo-cli</code>命令安装hexo<br>过程很快，安装成功后使用hexo -v可以查看hexo版本</p>
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近挖不到洞，快过年了事情也比较多。所以整理了下比较基础的跨域漏洞知识点，希望能抛砖引玉。</p>
+<h3 id="1-JSONP跨域"><a href="#1-JSONP跨域" class="headerlink" title="1. JSONP跨域"></a>1. JSONP跨域</h3><p>JSONP（JSON with padding）,是一种利用HTML中<script></script>元素标签，远程调用json文件来实现数据传递的技术，它的特点是可以<strong>跨域读取数据。</strong><br>那么为什么需要用到jsonp这样一种方式传递不同域之间的数据呢？因为同源策略，同源策略是由Netscape提出的一个著名的安全策略，现在所有支持JavaScript 的浏览器都会使用这个策略。<br>我们以key表哥的<a href="https://github.com/gh0stkey/DoraBox" target="_blank" rel="noopener">droabox</a>为例<br><img src="https://upload-images.jianshu.io/upload_images/7857598-39ed423580190c35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信截图_20190123201004.png"><br><img src="https://upload-images.jianshu.io/upload_images/7857598-78a513453d29b0b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信截图_20190123201020.png"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/11/从零到一的hexo博客搭建指南/#more" rel="contents">
+            <a class="btn" href="/2019/08/11/JSONP和CORS的组合拳/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

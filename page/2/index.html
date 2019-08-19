@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/JSONP和CORS的组合拳/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/从零到一的hexo博客搭建指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pr1s0n">
@@ -282,7 +282,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/11/JSONP和CORS的组合拳/" itemprop="url">深入浅出JSONP跨域和CORS跨域资源共享漏洞</a></h1>
+                <a class="post-title-link" href="/2019/08/11/从零到一的hexo博客搭建指南/" itemprop="url">从零到一的hexo博客搭建指南</a></h1>
         
 
         <div class="post-meta">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web安全文章/" itemprop="url" rel="index">
-                    <span itemprop="name">web安全文章</span>
+                  <a href="/categories/网站搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">网站搭建</span>
                   </a>
                 </span>
 
@@ -355,11 +355,17 @@
 
       
         
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近挖不到洞，快过年了事情也比较多。所以整理了下比较基础的跨域漏洞知识点，希望能抛砖引玉。</p>
-<h3 id="1-JSONP跨域"><a href="#1-JSONP跨域" class="headerlink" title="1. JSONP跨域"></a>1. JSONP跨域</h3><p>JSONP（JSON with padding）,是一种利用HTML中<script></script>元素标签，远程调用json文件来实现数据传递的技术，它的特点是可以<strong>跨域读取数据。</strong><br>那么为什么需要用到jsonp这样一种方式传递不同域之间的数据呢？因为同源策略，同源策略是由Netscape提出的一个著名的安全策略，现在所有支持JavaScript 的浏览器都会使用这个策略。<br>我们以key表哥的<a href="https://github.com/gh0stkey/DoraBox" target="_blank" rel="noopener">droabox</a>为例<br><img src="https://upload-images.jianshu.io/upload_images/7857598-39ed423580190c35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信截图_20190123201004.png"><br><img src="https://upload-images.jianshu.io/upload_images/7857598-78a513453d29b0b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信截图_20190123201020.png"></p>
+          <h3 id="hexo安装所需工具"><a href="#hexo安装所需工具" class="headerlink" title="hexo安装所需工具"></a>hexo安装所需工具</h3><p>1.nodejs<br>2.hexo程序文件</p>
+<h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><p>首先在nodejs官网下载<a href="https://nodejs.org/dist/v10.16.2/node-v10.16.2-x64.msi" target="_blank" rel="noopener">nodejs LTS</a></p>
+<p>然后选择好安装路径一路点击NEXT即可完成安装</p>
+<p>安装完成后，在命令行中输入 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>如果显示node版本即说明安装成功</p>
+<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p>首先使用 <code>npm install cnpm --registry=https://registry.npm.taobao.org</code><br>安装一个使用淘宝源的cnpm，直接使用nmp命令安装hexo也可以，但是因为国外源在国内的速度感人，所以推荐大家使用cnpm.<br>cnpm安装成功后，使用<code>cnpm install -g hexo-cli</code>命令安装hexo<br>过程很快，安装成功后使用hexo -v可以查看hexo版本</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/11/JSONP和CORS的组合拳/#more" rel="contents">
+            <a class="btn" href="/2019/08/11/从零到一的hexo博客搭建指南/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

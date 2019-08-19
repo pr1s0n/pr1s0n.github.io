@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Pr1s0n">
 <meta property="og:description" content="HTMLParser非显式调用12345678910111213141516171819202122232425from urllib import requestfrom html.parser import HTMLParserclass HtmlParserTest(HTMLParser):	&amp;quot;&amp;quot;&amp;quot;docstring for HtmlParserTest&amp;quo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-19T14:09:28.856Z">
+<meta property="og:updated_time" content="2019-08-19T14:14:22.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="15st_day HTMLParser">
 <meta name="twitter:description" content="HTMLParser非显式调用12345678910111213141516171819202122232425from urllib import requestfrom html.parser import HTMLParserclass HtmlParserTest(HTMLParser):	&amp;quot;&amp;quot;&amp;quot;docstring for HtmlParserTest&amp;quo">
@@ -361,7 +361,7 @@
 
 <ol>
 <li><p><strong>HTMLParser.handle_starttag(tag,attrs)</strong>: 解析时遇到开始标签调用,如<code>&lt;p class=&#39;para&#39;&gt;</code>,参数tag是标签名,这里是’p’,attrs为标签所有属性(name,value)列表,这里是<code>[(&#39;class&#39;,&#39;para&#39;)]</code></p>
-</li>
+<a id="more"></a></li>
 <li><p><strong>HTMLParser.handle_endtag(tag)</strong>: 遇到结束标签时调用,tag是标签名</p>
 </li>
 <li><p><strong>HTMLPars.handle_data(data)</strong>: 遇到标签中间的内容时调用,如<code>&lt;style&gt; p {color: blue; }&lt;/style&gt;</code>,参数data为开闭标签间的内容.值得注意的是在形如<code>&lt;div&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;</code>的位置,并不会在div处调用,而是只在p处调用。</p>
