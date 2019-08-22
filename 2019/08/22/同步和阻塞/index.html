@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, Pr1s0n">
+  <meta name="keywords" content="Python,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="一个博客">
-<meta name="keywords" content="web安全，python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pr1s0n">
-<meta property="og:url" content="http://yoursite.com/tags/web安全/index.html">
+<meta name="description" content="同步和异步 同步，就是在发出一个调用时，在没有得到结果之前， 该调用就不返回。换句话说就是调用者主动接收这个结果。  异步，就是调用者发出一个调用后，不用等结果，直接可以进行下一步。也就是说这个调用没有返回结果，是被调用者通过状态、通知来通知调用者，或者通过回调函数处理这个调用。   通俗点说：同步就像是正在苦苦追求一个女生的男生，这天他向这个女生表白，女生要给他一个是否同意交往的回答，女生没有回">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="同步异步阻塞非阻塞">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/同步和阻塞/index.html">
 <meta property="og:site_name" content="Pr1s0n">
-<meta property="og:description" content="一个博客">
+<meta property="og:description" content="同步和异步 同步，就是在发出一个调用时，在没有得到结果之前， 该调用就不返回。换句话说就是调用者主动接收这个结果。  异步，就是调用者发出一个调用后，不用等结果，直接可以进行下一步。也就是说这个调用没有返回结果，是被调用者通过状态、通知来通知调用者，或者通过回调函数处理这个调用。   通俗点说：同步就像是正在苦苦追求一个女生的男生，这天他向这个女生表白，女生要给他一个是否同意交往的回答，女生没有回">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-22T14:24:09.055Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pr1s0n">
-<meta name="twitter:description" content="一个博客">
+<meta name="twitter:title" content="同步异步阻塞非阻塞">
+<meta name="twitter:description" content="同步和异步 同步，就是在发出一个调用时，在没有得到结果之前， 该调用就不返回。换句话说就是调用者主动接收这个结果。  异步，就是调用者发出一个调用后，不用等结果，直接可以进行下一步。也就是说这个调用没有返回结果，是被调用者通过状态、通知来通知调用者，或者通过回调函数处理这个调用。   通俗点说：同步就像是正在苦苦追求一个女生的男生，这天他向这个女生表白，女生要给他一个是否同意交往的回答，女生没有回">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/web安全/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/22/同步和阻塞/">
 
 
 
 
 
-  <title>标签: web安全 | Pr1s0n</title>
+  <title>同步异步阻塞非阻塞 | Pr1s0n</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,52 +249,187 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>web安全<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/同步和阻塞/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pr1s0n">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pr1s0n">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/08/11/JSONP和CORS的组合拳/" itemprop="url">
-              
-                <span itemprop="name">深入浅出JSONP跨域和CORS跨域资源共享漏洞</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">同步异步阻塞非阻塞</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-11T15:50:00+08:00" content="2019-08-11">
-          08-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T22:23:18+08:00">
+                2019-08-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Python学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><ol>
+<li><p>同步，就是在发出一个调用时，在没有得到结果之前， 该调用就不返回。换句话说就是调用者主动接收这个结果。</p>
+</li>
+<li><p>异步，就是调用者发出一个调用后，不用等结果，直接可以进行下一步。也就是说这个调用没有返回结果，是被调用者通过状态、通知来通知调用者，或者通过回调函数处理这个调用。</p>
+</li>
+</ol>
+<p>通俗点说：<br>同步就像是正在苦苦追求一个女生的男生，这天他向这个女生表白，女生要给他一个是否同意交往的回答，女生没有回答之前他会一直等这个结果。<br>异步就像是个海王，广撒网，精准捕捞。群发表白消息，不管第一个女生是否给了回答，反正就是给列表里所有的女生都发了表白信息。等有女生同意和他交往，他就收到了想要的答案（返回值）。</p>
+<a id="more"></a>
+<h3 id="阻塞非阻塞"><a href="#阻塞非阻塞" class="headerlink" title="阻塞非阻塞"></a>阻塞非阻塞</h3><p>阻塞和非阻塞关注得是<strong>程序在等待调用结果(消息，返回值)时的状态</strong></p>
+<ol>
+<li>阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。</li>
+<li>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</li>
+</ol>
+<p>还是上面那个例子，你向一个女生表白，然后她如果一直吊着你不给你答复(绿茶)，你为了她茶饭不思，这就形成了阻塞。<br>如果你是海王，这个女生没有给你答复，你可以转过头去看看其他女生是否给你反馈，只要时不时回来看看这个女生有没有返回什么信息即可，这就是非阻塞。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/22/普通爬虫和协程爬虫/" rel="next" title="普通爬虫和协程爬虫">
+                <i class="fa fa-chevron-left"></i> 普通爬虫和协程爬虫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -301,6 +437,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -321,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -382,6 +531,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步和异步"><span class="nav-number">1.</span> <span class="nav-text">同步和异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞非阻塞"><span class="nav-number">2.</span> <span class="nav-text">阻塞非阻塞</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -542,6 +707,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

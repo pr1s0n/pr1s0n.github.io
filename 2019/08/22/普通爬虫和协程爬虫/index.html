@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Pillowpillow是一个图形处理模块，可以实现常用的裁剪，模糊，输出文字等功能。 1234567from PIL import Imageim = Image.open(&amp;apos;image.jpg&amp;apos;)w,h = im.sizeprint(&amp;apos;Original image size:%s %s&amp;apos; % (w,h))im.thumbnail((w//2, h//2)">
+<meta name="description" content="普通爬虫和协程爬虫普通爬虫逻辑：1234567891011121314151617181920212223242526272829import timefrom lxml import etreeimport requestsurls = [	&amp;apos;https://henan.qq.com/a/20190822/001115.htm&amp;apos;,	&amp;apos;https://henan.qq">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="15st_day 常用第三方模块">
-<meta property="og:url" content="http://yoursite.com/2019/08/19/st15_day常用第三方模块/index.html">
+<meta property="og:title" content="普通爬虫和协程爬虫">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/普通爬虫和协程爬虫/index.html">
 <meta property="og:site_name" content="Pr1s0n">
-<meta property="og:description" content="Pillowpillow是一个图形处理模块，可以实现常用的裁剪，模糊，输出文字等功能。 1234567from PIL import Imageim = Image.open(&amp;apos;image.jpg&amp;apos;)w,h = im.sizeprint(&amp;apos;Original image size:%s %s&amp;apos; % (w,h))im.thumbnail((w//2, h//2)">
+<meta property="og:description" content="普通爬虫和协程爬虫普通爬虫逻辑：1234567891011121314151617181920212223242526272829import timefrom lxml import etreeimport requestsurls = [	&amp;apos;https://henan.qq.com/a/20190822/001115.htm&amp;apos;,	&amp;apos;https://henan.qq">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-19T14:14:43.455Z">
+<meta property="og:updated_time" content="2019-08-22T14:22:48.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="15st_day 常用第三方模块">
-<meta name="twitter:description" content="Pillowpillow是一个图形处理模块，可以实现常用的裁剪，模糊，输出文字等功能。 1234567from PIL import Imageim = Image.open(&amp;apos;image.jpg&amp;apos;)w,h = im.sizeprint(&amp;apos;Original image size:%s %s&amp;apos; % (w,h))im.thumbnail((w//2, h//2)">
+<meta name="twitter:title" content="普通爬虫和协程爬虫">
+<meta name="twitter:description" content="普通爬虫和协程爬虫普通爬虫逻辑：1234567891011121314151617181920212223242526272829import timefrom lxml import etreeimport requestsurls = [	&amp;apos;https://henan.qq.com/a/20190822/001115.htm&amp;apos;,	&amp;apos;https://henan.qq">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/19/st15_day常用第三方模块/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/22/普通爬虫和协程爬虫/">
 
 
 
 
 
-  <title>15st_day 常用第三方模块 | Pr1s0n</title>
+  <title>普通爬虫和协程爬虫 | Pr1s0n</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/st15_day常用第三方模块/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/普通爬虫和协程爬虫/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pr1s0n">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">15st_day 常用第三方模块</h1>
+          <h1 class="post-title" itemprop="name headline">普通爬虫和协程爬虫</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T22:08:12+08:00">
-                2019-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T22:20:18+08:00">
+                2019-08-22
               </time>
             
 
@@ -357,30 +357,17 @@
       
 
       
-        <h3 id="Pillow"><a href="#Pillow" class="headerlink" title="Pillow"></a>Pillow</h3><p>pillow是一个图形处理模块，可以实现常用的裁剪，模糊，输出文字等功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">im = Image.open(&apos;image.jpg&apos;)</span><br><span class="line">w,h = im.size</span><br><span class="line">print(&apos;Original image size:%s %s&apos; % (w,h))</span><br><span class="line">im.thumbnail((w//2, h//2))</span><br><span class="line">print(&apos;Resize image to: %s %s&apos; % (w//2,h//2))</span><br><span class="line">im.save(&apos;thumbnial.jpg&apos;,&apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
+        <h3 id="普通爬虫和协程爬虫"><a href="#普通爬虫和协程爬虫" class="headerlink" title="普通爬虫和协程爬虫"></a>普通爬虫和协程爬虫</h3><h4 id="普通爬虫逻辑："><a href="#普通爬虫逻辑：" class="headerlink" title="普通爬虫逻辑："></a>普通爬虫逻辑：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">from lxml import etree</span><br><span class="line">import requests</span><br><span class="line">urls = [</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001115.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001128.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001086.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001764.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001163.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001169.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001196.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001278.htm&apos;</span><br><span class="line">]</span><br><span class="line">url = &apos;https://henan.qq.com/a/20190822/001764.htm&apos;</span><br><span class="line">def get_titles(url,cnt):</span><br><span class="line">	reponse = requests.get(url)</span><br><span class="line">	html = reponse.content</span><br><span class="line">	title = etree.HTML(html).xpath(&apos;//*[@id=&quot;Main-Article-QQ&quot;]/div[2]/div[1]/div[2]/div[1]/h1/text()&apos;)</span><br><span class="line">	print(&apos;第%d个title:%s&apos; % (cnt,&apos;&apos;.join(title)))</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	start1 = time.time()</span><br><span class="line">	i = 0</span><br><span class="line">	for url in urls:</span><br><span class="line">		i = i + 1</span><br><span class="line">		start = time.time()</span><br><span class="line">		get_titles(url,i)</span><br><span class="line">		print(&apos;第%d个title爬取耗时:%.5f秒&apos; % (i,float(time.time() - start)))</span><br><span class="line">	print(&apos;爬取总耗时:%.5f秒&apos; % float(time.time() - start1))</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image, ImageFilter</span><br><span class="line"></span><br><span class="line"># 打开一个jpg图像文件，注意是当前路径:</span><br><span class="line">im = Image.open(&apos;test.jpg&apos;)</span><br><span class="line"># 应用模糊滤镜:</span><br><span class="line">im2 = im.filter(ImageFilter.BLUR)</span><br><span class="line">im2.save(&apos;blur.jpg&apos;, &apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
-
-<p>模糊效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image,ImageFilter</span><br><span class="line">import os</span><br><span class="line">im = Image.open(&apos;image.jpg&apos;)</span><br><span class="line">im2 = im.filter(ImageFilter.BLUR)</span><br><span class="line">im2.save(&apos;blur.jpg&apos;,&apos;jpeg&apos;)</span><br><span class="line">if os.path.exists(&apos;blur.jpg&apos;):</span><br><span class="line">	print(&apos;success!&apos;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h3><p>requests用来处理URL资源。<br><strong>get()</strong><br>使用<code>requests.get(&#39;url&#39;)</code>来实现一个get访问功能。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import requests</span><br><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://api.github.com/user&apos;, auth=(&apos;user&apos;, &apos;pass&apos;))</span><br><span class="line">&gt;&gt;&gt; r.status_code</span><br><span class="line">200</span><br><span class="line">&gt;&gt;&gt; r.headers[&apos;content-type&apos;]</span><br><span class="line">&apos;application/json; charset=utf8&apos;</span><br><span class="line">&gt;&gt;&gt; r.encoding</span><br><span class="line">&apos;utf-8&apos;</span><br><span class="line">&gt;&gt;&gt; r.text</span><br><span class="line">u&apos;&#123;&quot;type&quot;:&quot;User&quot;...&apos;</span><br><span class="line">&gt;&gt;&gt; r.json()</span><br><span class="line">&#123;u&apos;disk_usage&apos;: 368627, u&apos;private_gists&apos;: 484, ...&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>get_titles()</strong>函数首先使用<strong>requests</strong>模块发起了一个get请求，获取html的页面源码。<br>然后利用<strong>etree</strong>中的<strong>xpath</strong>解析出想要获取到的内容。<br>xpath(‘’)中使用的是xpath语法，可以准确的定位获取到的内容。可以在审查元素中直接右键<strong>Copy-&gt;Copy Xpath</strong>复制出xpath代码，然后使用时在尾部加上<strong>text()</strong>就可以。</p>
+<h4 id="协程爬虫"><a href="#协程爬虫" class="headerlink" title="协程爬虫"></a>协程爬虫</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">from lxml import etree</span><br><span class="line">import aiohttp</span><br><span class="line">import asyncio</span><br><span class="line">urls = [</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001115.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001128.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001086.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001764.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001163.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001169.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001196.htm&apos;,</span><br><span class="line">	&apos;https://henan.qq.com/a/20190822/001278.htm&apos;,</span><br><span class="line">]</span><br><span class="line">titles = []</span><br><span class="line">sem = asyncio.Semaphore(10)</span><br><span class="line">async def get_title(url):</span><br><span class="line">	with(await sem):</span><br><span class="line">		async with aiohttp.ClientSession() as session:</span><br><span class="line">			async with session.request(&apos;GET&apos;,url) as resp:</span><br><span class="line">				html = await resp.read()</span><br><span class="line">				title = etree.HTML(html).xpath(&apos;//*[@id=&quot;Main-Article-QQ&quot;]/div[2]/div[1]/div[2]/div[1]/h1/text()&apos;)</span><br><span class="line">				print(&apos;&apos;.join(title))</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	loop = asyncio.get_event_loop()</span><br><span class="line">	tasks = [get_title(url) for url in urls]</span><br><span class="line">	loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line">	loop.close()</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	start = time.time()</span><br><span class="line">	main()</span><br><span class="line">	print(&apos;总耗时: %.5f秒&apos; % float(time.time()-start))</span><br></pre></td></tr></table></figure>
 
-<p><code>requests.status_code</code>获取状态码<br><code>requests.headers[&#39;&#39;]</code>获取头信息<br>…<br>如果url带参数，则可以设置get的第二个参数<strong>params</strong>,传入类型为dict.<br><code>requests.content</code>可以获取网页的bytes对象。<br><code>requests.json</code>可以直接 获取JSON格式数据，返回值为dict.</p>
-<p><strong>post()</strong><br>post请求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.post(&apos;https://accounts.douban.com/login&apos;, data=&#123;&apos;form_email&apos;: &apos;abc@example.com&apos;, &apos;form_password&apos;: &apos;123456&apos;&#125;)</span><br></pre></td></tr></table></figure>
+<p>在协程中，由于<strong>requests</strong>库提供的相关方法不是<strong>awaitable</strong>，使得无法放在<strong>await</strong>后面，因此无法在协程中直接使用<strong>requests</strong>库进行请求。</p>
+<p>为了解决这个问题，官方提供了一个<strong>aiohttp</strong>库，实现异步网页请求等功能。<br>使用<strong>aiohttp</strong>模块请求网页：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import aiohttp</span><br><span class="line">async with aiohttp.ClintSession() as session:</span><br><span class="line">	async with session.get(&apos;http://test.com&apos;) as resp:</span><br><span class="line">		print(resp.status)</span><br><span class="line">		print(await resp.text())</span><br></pre></td></tr></table></figure>
 
-<p>文件上传：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; upload_files = &#123;&apos;file&apos;: open(&apos;report.xls&apos;, &apos;rb&apos;)&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.post(url, files=upload_files)</span><br></pre></td></tr></table></figure>
-
-<p>此外，还有<strong>put()</strong>,<strong>delete()</strong>方法，使用方法类似。<br>如果想要访问时带上cookie，只需要准备一个dict传入cookie参数即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; cs = &#123;&apos;token&apos;: &apos;12345&apos;, &apos;status&apos;: &apos;working&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.get(url, cookies=cs)</span><br></pre></td></tr></table></figure>
-
-<h3 id="Tkinter图形化界面"><a href="#Tkinter图形化界面" class="headerlink" title="Tkinter图形化界面"></a>Tkinter图形化界面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">from tkinter import *</span><br><span class="line">import tkinter.messagebox as messagebox</span><br><span class="line">class Application(Frame):</span><br><span class="line">	&quot;&quot;&quot;docstring for Application&quot;&quot;&quot;</span><br><span class="line">	def __init__(self, master=None):</span><br><span class="line">		Frame.__init__(self,master)</span><br><span class="line">		self.pack()</span><br><span class="line">		self.createWidgets()</span><br><span class="line">	def createWidgets(self):</span><br><span class="line">		# self.helloLabel = Label(self,text=&apos;hello world&apos;)</span><br><span class="line">		# self.helloLabel.pack()</span><br><span class="line">		self.nameInput = Entry(self)</span><br><span class="line">		self.nameInput.pack()</span><br><span class="line">		self.alertButton = Button(self,text=&apos;Hello&apos;,command=self.hello)</span><br><span class="line">		self.alertButton.pack()</span><br><span class="line">	def hello(self):</span><br><span class="line">		name = self.nameInput.get() or &apos;world&apos;</span><br><span class="line">		messagebox.showinfo(&apos;Message&apos;,&apos;hello, %s&apos; % name)</span><br><span class="line"></span><br><span class="line">app = Application()</span><br><span class="line">app.master.title(&apos;hello world&apos;)</span><br><span class="line">app.mainloop()</span><br></pre></td></tr></table></figure>
-
+<p>其中<strong>async with</strong>是封装了异步实现功能的<strong>异步上下文管理器</strong><br>这段代码中将<strong>aiohttp</strong>模块中的<strong>ClientSession</strong>方法命名为<strong>session</strong>，并且将<strong>ClientResponse</strong>对象命名为<strong>resp</strong>,<strong>ClientSession.get()</strong>协程的必须参数为一个URL。再通过<strong>resp.text()</strong>获取到网页的全部内容。</p>
 
       
     </div>
@@ -411,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/17/st13_day 常用内建模块/" rel="next" title="st_day13 常用内建模块1">
-                <i class="fa fa-chevron-left"></i> st_day13 常用内建模块1
+              <a href="/2019/08/19/st_15day HTMLParser/" rel="next" title="15st_day HTMLParser">
+                <i class="fa fa-chevron-left"></i> 15st_day HTMLParser
               </a>
             
           </div>
@@ -421,8 +408,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/19/st_15day HTMLParser/" rel="prev" title="15st_day HTMLParser">
-                15st_day HTMLParser <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/22/同步和阻塞/" rel="prev" title="同步异步阻塞非阻塞">
+                同步异步阻塞非阻塞 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pillow"><span class="nav-number">1.</span> <span class="nav-text">Pillow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#requests"><span class="nav-number">2.</span> <span class="nav-text">requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter图形化界面"><span class="nav-number">3.</span> <span class="nav-text">Tkinter图形化界面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通爬虫和协程爬虫"><span class="nav-number">1.</span> <span class="nav-text">普通爬虫和协程爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普通爬虫逻辑："><span class="nav-number">1.1.</span> <span class="nav-text">普通爬虫逻辑：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协程爬虫"><span class="nav-number">1.2.</span> <span class="nav-text">协程爬虫</span></a></li></ol></li></ol></div>
             
 
           </div>
